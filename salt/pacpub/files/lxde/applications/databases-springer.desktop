@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=SpringerLink
+GenericName=SpringerLink
+Comment=Artikler innenfor ulike fagfelt
+Exec=firefox http://www.springerlink.com/identities/me/?sid=n1ecobyqgmt44z3p0kof3p2n&sh=www.springerlink.com
+Icon=/usr/local/src/icons/springer.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

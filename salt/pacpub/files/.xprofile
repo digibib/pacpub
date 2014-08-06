@@ -1,0 +1,6 @@
+#!/bin/bash
+# rsync -qa --delete --exclude='.Xauthority' --exclude='.cache' /opt/kiosk/ $HOME/
+# lxpanelctl restart
+lxlauncher &
+xrandr --output LVDS1 --off
+/usr/local/bin/mycel-client &

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name= Biblioteksentralen
+GenericName=Biblioteksentralen
+Comment=Emner i skjønnlitteratur
+Exec=firefox http://portal.bibsent.no/
+Icon=/usr/local/src/icons/biblioteksentralen.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

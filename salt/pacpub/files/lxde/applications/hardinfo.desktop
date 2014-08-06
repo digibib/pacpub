@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=System Profiler and Benchmark
+Exec=hardinfo
+Icon=/usr/share/hardinfo/pixmaps/logo.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=System;
+NoDisplay=true

@@ -1,0 +1,14 @@
+
+[Desktop Entry]
+Name=Encyclopedia Britannica
+GenericName=Encyclopedia Britannica
+Comment=Engelskspråklig nettleksikon
+Exec=firefox http://library.eb.co.uk/
+Icon=/usr/local/src/icons/britannica.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8
+Name[nb]=Encyclopedia Britannica
+Comment[nb]=Engelskspråklig nettleksikon

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name= Norsk lovkommentar
+GenericName=Norsk lovkommentar
+Comment=Lover med utfyllende kommentarer
+Exec=firefox http://www.rettsdata.no/
+Icon=/usr/local/src/icons/lovkommentar.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

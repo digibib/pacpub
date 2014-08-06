@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Ordnett
+GenericName=Ordnett
+Comment=Elektroniske ordbøker
+Exec=firefox http://www.ordnett.no/ordbok.html
+Icon=/usr/local/src/icons/ordnett.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

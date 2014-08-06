@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Icon=system-file-manager
+Name=File Manager PCManFM
+Name[nb]=Filbehandler
+GenericName=File Manager
+GenericName[nb]=Filbehandler
+Comment=Browse the file system and manage the files
+Comment[nb]=Bla i filer
+Categories=FileManager;Utility;Core;GTK;
+Exec=pcmanfm %U
+StartupNotify=true
+Terminal=false
+MimeType=x-directory/normal;inode/directory;

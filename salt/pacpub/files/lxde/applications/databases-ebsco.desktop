@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Ebsco
+GenericName=Ebsco
+Comment=Internasjonale avisartikler
+Exec=firefox http://search.ebscohost.com/
+Icon=/usr/local/src/icons/ebsco.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

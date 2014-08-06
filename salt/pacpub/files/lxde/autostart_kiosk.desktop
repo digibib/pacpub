@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Autostart kiosk
+GenericName=Autostart kiosk
+Comment=Kiosk autostart
+Exec=/usr/local/bin/autostart_kiosk.sh
+Terminal=false
+Type=Application
+Icon=dropbox
+Categories=Network;FileTransfer;
+StartupNotify=false
+NoDisplay=true

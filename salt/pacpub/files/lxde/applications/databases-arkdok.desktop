@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=ARKDOK/KONKDOK
+GenericName=ARKDOK/KONKDOK
+Comment=Referanser til artikler om arkitekur i Norge
+Exec=firefox http://nalbib.mnal.no/pwvm.asp
+Icon=/usr/local/src/icons/arkdok.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Exec=/usr/lib/jvm/java-7-oracle/bin/jmc
+Icon=oracle_java7
+Name=Oracle Java 7 Mission Control
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;Java;
+NoDisplay=true

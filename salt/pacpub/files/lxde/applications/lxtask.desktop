@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Task Manager
+Name[nb]=Oppgavebehandler
+Comment=Manage running processes
+Comment[nb]=Håndter kjørende prosesser
+GenericName[nb]=Prosesshåndtering
+Exec=lxtask
+Icon=utilities-system-monitor
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=GTK;System;Monitor;
+NoDisplay=true

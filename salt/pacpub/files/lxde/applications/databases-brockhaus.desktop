@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Brockhaus
+Name[nb]=Brockhaus
+GenericName=Brockhaus
+Comment=Tyskspråklig nettleksikon
+Comment[nb]=Tyskspråklig nettleksikon
+Exec=firefox http://www.brockhaus-enzyklopaedie.de/
+Icon=/usr/local/src/icons/brockhaus.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

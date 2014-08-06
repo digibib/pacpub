@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name= Lovdata
+GenericName=Lovdata
+Comment=Lover, forskrifter og dommer
+Exec=firefox http://www.lovdata.no/index.html
+Icon=/usr/local/src/icons/lovdata.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

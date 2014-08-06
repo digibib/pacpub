@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=LXTerminal
+Name[nb]=LXTerminal
+Comment=LXTerminal
+Comment[nb]=LXTerminal
+TryExec=lxterminal
+Exec=lxterminal
+Icon=lxterminal
+Type=Application
+Categories=GTK;System;Monitor;
+NoDisplay=true

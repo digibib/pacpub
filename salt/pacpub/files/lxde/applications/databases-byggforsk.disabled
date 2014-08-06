@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Byggforsk
+GenericName=Byggforsk
+Comment=Bygnings- og våtromsregler
+Exec=firefox http://bks.byggforsk.no/
+Icon=/usr/local/src/icons/byggforsk.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

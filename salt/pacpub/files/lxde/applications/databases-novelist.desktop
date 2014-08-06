@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Novelist
+GenericName=Novelist
+Comment=Om engelskspråklig skjønnlitteratur
+Exec=firefox http://search.ebscohost.com/
+Icon=/usr/local/src/icons/novelist.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

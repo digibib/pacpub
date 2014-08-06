@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Nasjonalbibliotekets avisbase
+GenericName=Nasjonalbibliotekets avisbase
+Comment=NB digitaliserer avissamlingen sin fortløpende. Utvalgte aviser er tilgjengelig for publikum på Deichman.
+Exec=firefox http://www.nb.no/aviser/
+Icon=/usr/local/src/icons/nbdigital.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

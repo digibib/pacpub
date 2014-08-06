@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=ISI Web of Knowledge
+GenericName=ISI Web of Knowledge
+Comment=Referanser til artikler innenfor ulike fagfelt
+Exec=firefox http://www.isiknowledge.com/
+Icon=/usr/local/src/icons/isiweb.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

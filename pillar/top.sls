@@ -1,0 +1,4 @@
+# PILLAR TOP
+base:
+  '*':
+    - admin

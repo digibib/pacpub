@@ -1,0 +1,2 @@
+# allow mycel client to set printer
+bib ALL=NOPASSWD: /usr/sbin/lpadmin

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=NRK-Bibliotekets minnedagsliste
+GenericName=NRK-Bibliotekets minnedagsliste
+Comment=Begivenheter og merkedager
+Exec=firefox http://www20.nrk.no/minnedager/liste.aspx
+Icon=/usr/local/src/icons/minnedager.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

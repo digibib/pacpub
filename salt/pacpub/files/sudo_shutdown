@@ -1,0 +1,2 @@
+# allow mycel client to shutdown
+bib ALL=NOPASSWD: /sbin/shutdown -P now

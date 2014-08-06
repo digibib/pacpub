@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Atekst
+Name[nb]=Atekst
+GenericName=Atekst
+Comment=Norske avisartikler
+Comment[nb]=Norske avisartikler
+Exec=firefox http://www.retriever-info.com/services/archive.html
+Icon=/usr/local/src/icons/atekst.png
+StartupNotify=true
+Termina=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

@@ -1,0 +1,31 @@
+#!/bin/sh
+#/etc/dhcp/dhclient-exit-hooks.d/hostname:
+# Filename:     /etc/dhcp/dhclient-exit-hooks.d/hostname
+# Purpose:      Used by dhclient-script to set the hostname of the system
+#               to match the DNS information for the host as provided by
+#               DHCP.
+#
+
+
+# Do not update hostname for virtual machine IP assignments
+if [ "$interface" != "eth0" ] && [ "$interface" != "wlan0" ]
+then
+    return
+fi
+
+
+if [ "$reason" != BOUND ] && [ "$reason" != RENEW ] \
+   && [ "$reason" != REBIND ] && [ "$reason" != REBOOT ]
+then
+    return
+fi
+
+if [ -f /var/log/casper.log ]
+then 
+  hostname=$(cat /var/log/casper.log | grep host | cut -d ' ' -f 6)
+else
+  hostname=$(new_host_name)
+fi
+echo $hostname > /etc/hostname
+sed -i "s/127\.0\.1\.1.+/127\.0\.1\.1\s\s\s$hostname/" /etc/hosts
+hostname $hostname
