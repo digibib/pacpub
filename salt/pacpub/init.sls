@@ -111,6 +111,50 @@ remastersys:
       - cmd: remastersys
 
 ##########
+# GLOBAL SETTINGS
+##########
+
+/etc/network/interfaces:
+  file.managed:
+    - source: salt://pacpub/files/network-interfaces
+
+# dhclient hook to update hostname from dhcp
+/etc/dhcp/dhclient-exit-hooks.d/hostname:
+  file.managed:
+    - source: salt://pacpub/files/dhclient-hostname
+    - force: True
+
+/etc/lightdm/lightdm.conf:
+  file.managed:
+    - source: salt://pacpub/files/lightdm.conf
+    - force: True
+
+# /etc/lightdm/pubuser_login.sh:
+#   file.managed:
+#     - source: salt://pacpub/files/pubuser_login.sh
+#     - mode: 755
+#     - force: True
+
+/etc/lightdm/restart_lightdm.sh:
+  file.managed:
+    - source: salt://pacpub/files/restart_lightdm.sh
+    - mode: 755
+    - force: True
+
+/usr/local/bin/autostart_kiosk.sh:
+  file.managed:
+    - source: salt://pacpub/files/autostart_kiosk.sh
+    - mode: 755
+
+########
+# CHROMIUM
+########
+
+# /etc/chromium-browser/policies/managed/chomiumpolicies.json:
+#   file.managed:
+#     - source: salt://pacpub/files/chomiumpolicies.json
+
+##########
 # PRINTER
 ##########
 
@@ -126,7 +170,7 @@ setup_printer:
     - name: lpadmin -E -p skranken -v socket://10.172.2.31:9100 -m foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/HP-LaserJet_4050-Postscript.ppd -L "Skranken" -E
 
 
-# make sure skranken printer is accepting jobs
+# make sure default printer is accepting jobs
 enable_printer: 
   cmd.run:
     - name: accept skranken
@@ -173,40 +217,6 @@ kataloguser:
     - mode: 755
 
 ##########
-# GLOBAL SETTINGS
-##########
-
-/etc/dhcp/dhclient-exit-hooks.d/hostname:
-  file.managed:
-    - source: salt://pacpub/files/dhclient-hostname
-    - force: True
-
-/etc/lightdm/lightdm.conf:
-  file.managed:
-    - source: salt://pacpub/files/lightdm.conf
-    - force: True
-
-# /etc/lightdm/pubuser_login.sh:
-#   file.managed:
-#     - source: salt://pacpub/files/pubuser_login.sh
-#     - mode: 755
-#     - force: True
-
-/etc/lightdm/restart_lightdm.sh:
-  file.managed:
-    - source: salt://pacpub/files/restart_lightdm.sh
-    - mode: 755
-    - force: True
-
-########
-# CHROMIUM
-########
-
-# /etc/chromium-browser/policies/managed/chomiumpolicies.json:
-#   file.managed:
-#     - source: salt://pacpub/files/chomiumpolicies.json
-
-##########
 # SERVICES
 ##########
 
@@ -216,4 +226,11 @@ lightdm:
     - running
     - watch:
       - file: /etc/lightdm/lightdm.conf
+    - stateful: True
+
+networking:
+  service:
+    - running
+    - watch:
+      - file: /etc/network/interfaces
     - stateful: True
