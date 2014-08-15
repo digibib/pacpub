@@ -2,18 +2,6 @@
 # KIOSK AUTOSTART SETTINGS
 ########
 
-
-# login sync from kiosk
-# /home/bib/.xsession:
-#   file.managed:
-#     - source: salt://pacpub/files/.xsession
-#     - user: bib
-#     - group: bib
-    # - force: True
-    # - template: jinja
-    # - context:
-    #   Startpage: {{ pillar['startpage'] }}
-
 bibuser:
   user.present:
     - name: bib
@@ -31,28 +19,11 @@ bibuser:
     - user: bib
     - group: bib
     - force: True
-    # - template: jinja
-    # - context:
-    #   Startpage: {{ pillar['startpage'] }}
 
 /usr/local/bin/autostart_kiosk.sh:
   file.managed:
     - source: salt://pacpub/files/autostart_kiosk.sh
     - mode: 755
-
-# Disabled in Saucy
-
-# /home/bib/.config/autostart:
-#   file.directory:
-#     - makedirs: True
-#     - user: bib
-#     - group: bib
-
-# /home/bib/.config/autostart/autostart_kiosk.desktop:
-#   file.managed:
-#     - source: salt://pacpub/files/lxde/autostart_kiosk.desktop
-#     - user: bib
-#     - group: bib
 
 ########
 # APPLICATIONS
