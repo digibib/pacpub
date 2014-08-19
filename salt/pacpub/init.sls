@@ -52,6 +52,7 @@ installpkgs:
       - openssh-server
       - lxlauncher
       - flashplugin-installer
+      - xdotool
     - skip_verify: True
 
 removepkgs:

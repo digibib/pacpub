@@ -1,1 +1,2 @@
-adminpass: somesaltedpassword
+adminpass: somesaltedpassword  # Admin user password (must be Salted)
+startpage: http://ubuntu.com   # Default firefox startpage

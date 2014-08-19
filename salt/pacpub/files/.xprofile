@@ -2,5 +2,5 @@
 # rsync -qa --delete --exclude='.Xauthority' --exclude='.cache' /opt/kiosk/ $HOME/
 # lxpanelctl restart
 lxlauncher &
-xrandr --output LVDS1 --off
+xrandr --output LVDS1 --off    # Hack to disable laptop secondary view (!?)
 /usr/local/bin/mycel-client &
