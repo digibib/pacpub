@@ -22,7 +22,7 @@ fi
 echo "dhclient-exit-hooks.d/hostname: Dynamic IP address = $new_ip_address"
 hostname=$(host $new_ip_address | cut -d ' ' -f 5 | cut -d '.' -f 1)
 # NXDOMAIN means host lookup failed
-if [[ $hostname == *NXDOMAIN* ]]
+if [[ $hostname != *NXDOMAIN* ]]
 then
   echo $hostname > /etc/hostname
   sed -i "s/^127.0.1.1.*$/127.0.1.1    $hostname/" /etc/hosts

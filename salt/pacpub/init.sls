@@ -142,11 +142,6 @@ remastersys:
     - mode: 755
     - force: True
 
-/usr/local/bin/autostart_kiosk.sh:
-  file.managed:
-    - source: salt://pacpub/files/autostart_kiosk.sh
-    - mode: 755
-
 ########
 # CHROMIUM
 ########

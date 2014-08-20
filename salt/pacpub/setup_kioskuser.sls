@@ -106,6 +106,7 @@ icons:
     - require:
       - file: icons
 
+
 ########
 # FIREFOX
 ########
@@ -114,17 +115,18 @@ icons:
   file.managed:
     - source: salt://pacpub/files/firefox/firefoxproxy.pac
 
-/home/bib/.mozilla/firefox/0hj15qc9.default/prefs.js:
-  file.managed:
-    - source: salt://pacpub/files/firefox/prefs.js
-    - user: bib
-    - group: bib
+# /home/bib/.mozilla/firefox/0hj15qc9.default/prefs.js:
+#   file.managed:
+#     - source: salt://pacpub/files/firefox/prefs.js
+#     - user: bib
+#     - group: bib
 
-/home/bib/.mozilla/firefox/profiles.ini:
-  file.managed:
-    - source: salt://pacpub/files/firefox/profiles.ini
-    - user: bib
-    - group: bib
+# /home/bib/.mozilla/firefox/profiles.ini:
+#   file.managed:
+#     - source: salt://pacpub/files/firefox/profiles.ini
+#     - user: bib
+#     - group: bib
+
 
 ########
 # KEYBINDINGS
@@ -136,3 +138,14 @@ icons:
     - user: bib
     - group: bib
 
+########
+# FIRSTRUN
+########
+
+# lightdm uses .xprofile for login scripting
+firstrun:
+  cmd.script:
+    - source: salt://pacpub/files/firstrun.sh
+    - template: jinja
+    - require:
+      - file: /usr/local/bin/firefoxproxy.pac
