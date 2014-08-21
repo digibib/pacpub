@@ -12,22 +12,34 @@ sleep 5
 
 # start firefox
 firefox {{ pillar['startpage'] }} &
-sleep 5
+sleep 8
 
 # do firefox mods
 WID=`xdotool search "Mozilla Firefox" | head -1`
 if [ -n "$WID" ]
 then
   xdotool windowactivate --sync $WID
-  xdotool key --clearmodifiers ctrl+l
-
-  sleep 1
+  sleep 3
+  xdotool key --delay 20 Alt+e n        # open preferences
+  xdotool key Alt+c                     # use current homepage
+  xdotool key Alt+a                     # always ask me where to save files
+  xdotool key Tab Tab Tab               # back to preferences tabs
+  xdotool key Right Right Right Right   # switch to privacy tab
+  xdotool key Alt+w n                   # never remember history
+  xdotool key Escape
+  sleep 5
   pkill firefox
-  CHANGED=yes
+  CHANGED=true
   COMMENT='Firefox started and updated'
+  EXITCODE=0
 else
-  echo "{\"ERROR\":\"firefox not started\"}"
-  exit 1
+  CHANGED=false
+  COMMENT='Error: firefox not started'
+  EXITCODE=1
 fi
+# Return state
 echo 
-echo "{\"changed\":\"$CHANGED\", \"comment\":\"$COMMENT\"}"
+echo "{\"result\":\"$RESULT\",\
+       \"changed\":\"$CHANGED\",\
+       \"comment\":\"$COMMENT\"}"
+exit $EXITCODE

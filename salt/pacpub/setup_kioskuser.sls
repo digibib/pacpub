@@ -147,5 +147,6 @@ firstrun:
   cmd.script:
     - source: salt://pacpub/files/firstrun.sh
     - template: jinja
+    - stateful: True
     - require:
       - file: /usr/local/bin/firefoxproxy.pac
