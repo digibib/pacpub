@@ -23,15 +23,6 @@ then
   xdotool windowactivate --sync $WID
   sleep 1
   KEYS=(
-    # 'Alt+r i i Return'     # preferences
-    # 'Alt+b'                # use current homepage
-    # 'Alt+oslash'           # always ask me where to save files
-    # 'Tab Tab'              # back to preferences tabs
-    # 'Left Left Left Left'  # switch to privacy tab
-    # 'Alt+f a'              # never remember history
-    # 'Return'               # allow history setting to restart browser
-    # 'Right Right'          # health report
-    # 'Alt+s Alt+aring'      # disable health report
     'Alt+e n'                   # open preferences
     'Alt+c'                     # use current homepage
     'Alt+a'                     # always ask me where to save files
