@@ -138,6 +138,15 @@ icons:
     - user: bib
     - group: bib
 
+{% for folder in ['Bilder','Dokumenter','Maler','Musikk','Offentlig','Skrivebord','Videoklipp'] %}
+/home/bib/{{folder}}:
+  file.absent
+{% endfor %}
+
+/home/bib/USB:
+  file.symlink:
+    - target: /media
+
 ########
 # FIRSTRUN
 ########

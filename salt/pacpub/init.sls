@@ -162,14 +162,13 @@ remastersys:
 
 setup_printer:
   cmd.run:
-#    - name: lpadmin -E -p skranken -v socket://10.172.2.31:9100 -m gutenprint.5.2://hp-lj_4000/expert -L "Skranken" -E
-    - name: lpadmin -E -p skranken -v socket://10.172.2.31:9100 -m foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/HP-LaserJet_4050-Postscript.ppd -L "Skranken" -E
-
+#    - name: lpadmin -E -p publikumsskriver -v socket://10.172.2.31:9100 -m gutenprint.5.2://hp-lj_4000/expert -L "publikumsskriver" -E
+    - name: lpadmin -E -p publikumsskriver -v socket://10.172.2.31:9100 -m foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/HP-LaserJet_4050-Postscript.ppd -L "publikumsskriver" -E
 
 # make sure default printer is accepting jobs
 enable_printer: 
   cmd.run:
-    - name: accept skranken
+    - name: accept publikumsskriver
     - require:
       - file: /etc/sudoers.d/sudo_lpadmin
       - cmd: setup_printer
