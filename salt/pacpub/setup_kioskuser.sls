@@ -1,6 +1,22 @@
 ########
-# KIOSK AUTOSTART SETTINGS
+# CLEAN SLATE
 ########
+
+/opt/kiosk:
+  file.absent
+
+# mycel-client, ssh-agent and menu-cached must be killed before user is removed
+{% for proc in ['mycel-client', 'ssh-agent', 'menu-cached'] %}
+kill_{{proc}}:
+  cmd.run:
+    - name: pkill {{proc}} || true
+{% endfor %}
+
+purge_bibuser:
+  user.absent:
+    - name: bib
+    - purge: True
+    - force: True
 
 bibuser:
   user.present:
@@ -11,6 +27,24 @@ bibuser:
     - password: {{ pillar['adminpass'] }}
     - groups:
       - nopasswdlogin
+    - require:
+      - user: purge_bibuser
+
+########
+# FIRSTRUN
+########
+
+firstrun:
+  cmd.script:
+    - source: salt://pacpub/files/firstrun.sh
+    - template: jinja
+    - stateful: True
+    - require:
+      - file: /tmp/proxy.pac
+
+########
+# PROFILE
+########
 
 # lightdm uses .xprofile for login scripting
 /home/bib/.xprofile:
@@ -26,7 +60,7 @@ bibuser:
     - mode: 755
 
 ########
-# APPLICATIONS
+# DESKTOP APPLICATIONS
 ########
 
 applications:
@@ -36,7 +70,6 @@ applications:
     - user: bib
     - group: bib
 
-# hide java webstart
 /home/bib/.local/share/applications:
   file.recurse:
     - source: salt://pacpub/files/lxde/applications
@@ -111,7 +144,7 @@ icons:
 # FIREFOX
 ########
 
-/usr/local/bin/firefoxproxy.pac:
+/tmp/proxy.pac:
   file.managed:
     - source: salt://pacpub/files/firefox/firefoxproxy.pac
 
@@ -127,9 +160,8 @@ icons:
 #     - user: bib
 #     - group: bib
 
-
 ########
-# KEYBINDINGS
+# KEYBINDINGS AND FOLDERS
 ########
 
 /home/bib/.config/openbox/lubuntu-rc.xml:
@@ -138,7 +170,7 @@ icons:
     - user: bib
     - group: bib
 
-{% for folder in ['Bilder','Dokumenter','Maler','Musikk','Offentlig','Skrivebord','Videoklipp'] %}
+{% for folder in ['Bilder','Dokumenter','Maler','Musikk','Offentlig','Videoklipp'] %}
 /home/bib/{{folder}}:
   file.absent
 {% endfor %}
@@ -146,16 +178,5 @@ icons:
 /home/bib/USB:
   file.symlink:
     - target: /media
-
-########
-# FIRSTRUN
-########
-
-# lightdm uses .xprofile for login scripting
-firstrun:
-  cmd.script:
-    - source: salt://pacpub/files/firstrun.sh
-    - template: jinja
-    - stateful: True
-    - require:
-      - file: /usr/local/bin/firefoxproxy.pac
+    - user: bib
+    - group: bib
