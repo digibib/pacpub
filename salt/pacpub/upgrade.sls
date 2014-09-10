@@ -3,7 +3,7 @@
 ##########
 
 include:
-  - init
+  - pacpub
 
 upgradepkgs:
   pkg.latest:

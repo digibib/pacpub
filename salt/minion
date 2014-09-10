@@ -1,3 +1,5 @@
 master: 
   - localhost
   - 192.168.0.1
+file_client: local
+

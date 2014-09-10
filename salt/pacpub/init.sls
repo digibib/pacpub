@@ -125,23 +125,6 @@ remastersys:
     - source: salt://pacpub/files/dhclient-hostname
     - force: True
 
-/etc/lightdm/lightdm.conf:
-  file.managed:
-    - source: salt://pacpub/files/lightdm.conf
-    - force: True
-
-# /etc/lightdm/pubuser_login.sh:
-#   file.managed:
-#     - source: salt://pacpub/files/pubuser_login.sh
-#     - mode: 755
-#     - force: True
-
-/etc/lightdm/restart_lightdm.sh:
-  file.managed:
-    - source: salt://pacpub/files/restart_lightdm.sh
-    - mode: 755
-    - force: True
-
 ########
 # CHROMIUM
 ########
@@ -214,14 +197,6 @@ kataloguser:
 ##########
 # SERVICES
 ##########
-
-
-lightdm:
-  service:
-    - running
-    - watch:
-      - file: /etc/lightdm/lightdm.conf
-    - stateful: True
 
 networking:
   service:
