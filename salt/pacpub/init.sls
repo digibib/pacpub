@@ -99,8 +99,9 @@ remastersys_dependencies:
 
 remastersys: 
   cmd.run:
-    - name: dpkg -i /tmp/remastersys_3.0.4-2_all.deb
-    - unless: dpkg -s /tmp/remastersys_3.0.4-2_all.deb
+    - cwd:  /tmp
+    - name: dpkg -i remastersys_3.0.4-2_all.deb
+    - unless: dpkg -s remastersys_3.0.4-2_all.deb
     - require:
       - file: /tmp/remastersys_3.0.4-2_all.deb
       - pkg: remastersys_dependencies

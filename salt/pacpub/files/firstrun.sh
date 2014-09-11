@@ -9,6 +9,7 @@ export DISPLAY=:0
 
 # login
 xdotool key Return
+
 sleep 10
 
 # start firefox
@@ -37,7 +38,7 @@ then
     sleep 1
     xdotool key --delay 20 $keys
   done
-  sleep 3
+  sleep 5
   xdotool key  'Alt+w n'        # never remember history
   sleep 5
   # SECOND RUN - ADDONS
@@ -49,18 +50,17 @@ then
     'Alt+c'                    # disable crash reporting
     'Tab Tab Tab Tab Tab'
     'Right Tab Return'         # network settings
-    'Alt+a Tab'                # automatic proxy
+    'Alt+a Tab Tab'            # automatic proxy
     'f i l e colon slash slash slash t m p slash p r o x y period p a c'
-    'Tab Tab Tab Return'
+    'Tab Tab Tab Tab Return'
     'Shift+Tab Shift+Tab Right' # Return to start
     'Escape'                    # exit preferences
     'Ctrl+l'
     'a b o u t colon a d d o n s Return'
-    'Tab Tab'
+    'Tab Tab Tab'
     'Home Down Down Down'
     'Tab Tab Down'
     'Tab Tab Down'
-    'Alt+w'
     'Alt+F4'               # exit firefox cleanly
   )
   # loop over keystrokes with sleep interval
