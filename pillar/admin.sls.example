@@ -1,5 +1,10 @@
-# generate salted password with :
-# mkpasswd --method=sha-512 --salt=<random salt string> <password>
-adminpass: somesaltedpassword  # Admin user password (must be Salted)
+---
+# Admin user password (must be Salted): mkpasswd --method=sha-512 --salt=<random salt string> <password>
+adminpass: somesaltedpassword
 startpage: http://ubuntu.com   # Default firefox startpage
 grandmaster: 192.168.0.1       # IP to master of masters
+
+# Targets to deploy image to (by scp)
+deploy_ssh: user@somehost
+deploy_imgdir: /tftpboot/newimages
+deploy_olddir: /tftpboot/oldimages
