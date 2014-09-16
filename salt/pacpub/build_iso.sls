@@ -15,6 +15,20 @@ historyclean:
     - name: history -c && rm -rf .mozilla/firefox/cache/*
     - user: bib
 
+salt-minion:
+  file.append:
+    - name: /etc/salt/minion
+    - source: salt://pacpub/files/minion
+    - template: jinja
+    - context:
+      master: 192.168.0.1
+      grandmaster: {{ pillar['grandmaster'] }}
+
+minion-service:
+  file.managed:
+    - name: /etc/init/salt-minion
+    - source: salt://pacpub/files/salt-minion.conf.tmpl
+
 remastersys:
   cmd.run:
     - name: remastersys clean && remastersys backup

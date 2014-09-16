@@ -2,3 +2,4 @@
 # mkpasswd --method=sha-512 --salt=<random salt string> <password>
 adminpass: somesaltedpassword  # Admin user password (must be Salted)
 startpage: http://ubuntu.com   # Default firefox startpage
+grandmaster: 192.168.0.1       # IP to master of masters
