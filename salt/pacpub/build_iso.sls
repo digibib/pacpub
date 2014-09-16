@@ -16,7 +16,7 @@ historyclean:
     - user: bib
 
 salt-minion:
-  file.append:
+  file.managed:
     - name: /etc/salt/minion
     - source: salt://pacpub/files/minion
     - template: jinja

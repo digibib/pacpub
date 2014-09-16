@@ -8,25 +8,29 @@ It also contains a state to generate a live .ISO image
 
 ## Setup
 
-You'll need Vagrant >= 1.5 
+You'll need Vagrant >= 1.5 (http://vagrantup.com)
+Local settings are set in `pillar/admin.sls` with a default at `pillar/admin.sls.example`
 
     make
 
-will do all the work on downloading a vagrant starter box and setup the packages needed.
+will do all the work on downloading a vagrant starter box and setup the packages and states needed.
 First time run will take quite some time.
 
-## Other states
+## Usage
 
-    make upgrade
+`make provision`   # run highstate. set box in states form salt/top.sls
+`make upgrade`     # upgrades all packages in image
+`make freeze`      # saves the kiosk state of the public user
 
-upgrades all packages in image
+## Build and deploy
 
-    make freeze
+`make iso`         # builds a live .ISO image from the current state 
 
-saves the kiosk state of the public user
+Live ISO is generated and saved in current folder as mycelimage-newest.iso
 
-    make iso
+`make deploy`      # deploy image to one or more locations
 
-builds a live .ISO image from the current state and saves as mycelimage-newest.iso
+Setup deploy targets in pillar/admin.sls. Uses scp to try to copy
 
-See Makefile for more info on states
+## Cleanup
+`make clean`       # destroy and delete VirtualBox
