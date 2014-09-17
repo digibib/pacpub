@@ -30,7 +30,8 @@ Live ISO is generated and saved in current folder as mycelimage-newest.iso
 
 `make deploy`      # deploy image to one or more locations
 
-Setup deploy targets in pillar/admin.sls. Uses scp to try to copy
+Setup deploy targets in pillar/admin.sls. Uses ssh to move previous image to archive and 
+scp to copy new image and md5 checksum to deploy location.
 
 ## Cleanup
 `make clean`       # destroy and delete VirtualBox

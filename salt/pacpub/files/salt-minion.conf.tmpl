@@ -12,14 +12,18 @@ stop on runlevel [!2345]
 #respawn
 #respawn limit 10 5
 
+pre-start script
+  set -x
+  # force hostname before salt-minion start
+  /sbin/dhclient eth0
+end script
+
 script
   # Read configuration variable file if it is present
   [ -f /etc/default/$UPSTART_JOB ] && . /etc/default/$UPSTART_JOB
 
   # Activate the virtualenv if defined
   [ -f $SALT_USE_VIRTUALENV/bin/activate ] && . $SALT_USE_VIRTUALENV/bin/activate
-  
-  /sbin/dhclient eth0 # force hostname before salt-minion start
   
   exec salt-minion
 end script
