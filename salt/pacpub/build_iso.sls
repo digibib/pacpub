@@ -1,5 +1,5 @@
 ########
-# BUiLD REMASTERSYS ISO
+# BUiLD ISO
 ########
 
 /etc/remastersys.conf:
@@ -12,8 +12,12 @@ apt-clean:
 
 historyclean:
   cmd.run:
-    - name: history -c && rm -rf .mozilla/firefox/cache/*
+    - name: history -c && rm -rf ~/.mozilla/firefox/cache/*
     - user: bib
+
+########
+# SETUP SALT MINION AND MASTERS
+########
 
 salt-minion:
   file.managed:
@@ -28,6 +32,10 @@ minion-service:
   file.managed:
     - name: /etc/init/salt-minion
     - source: salt://pacpub/files/salt-minion.conf.tmpl
+
+########
+# BUiLD REMASTERSYS ISO
+########
 
 remastersys:
   cmd.run:
