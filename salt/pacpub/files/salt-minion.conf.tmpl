@@ -12,10 +12,14 @@ stop on runlevel [!2345]
 #respawn
 #respawn limit 10 5
 
+# Pre start script handles hostname setup from dns
+# and set gateway IP as salt master
 pre-start script
   set -x
   # force hostname before salt-minion start
   /sbin/dhclient eth0
+  GATEWAY=arp -a | awk -F'[()]' '{print $2}'
+  sed -i "s/__MASTER__/${GATEWAY}/" /etc/salt/minion
 end script
 
 script

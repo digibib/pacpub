@@ -28,10 +28,23 @@ First time run will take quite some time.
 
 Live ISO is generated and saved in current folder as mycelimage-newest.iso
 
+## Test Deploy
+
+For testing generated image, deploy to pacman first
+
+`make deploy_pacman`
+
+which assumes pacman is installed in subdirectory.
+(http://github.com/digibib/pacman.git)
+(To deploy testimage to pacman client, use `make import_iso` inside pacman)
+
+## Deploy
+
+For production deploy, make sure to setup deploy targets in pillar/admin.sls. 
+
 `make deploy`      # deploy image to one or more locations
 
-Setup deploy targets in pillar/admin.sls. Uses ssh to move previous image to archive and 
-scp to copy new image and md5 checksum to deploy location.
+Uses ssh to move previous image to archive and  scp to copy new image and md5 checksum to deploy location.
 
 ## Cleanup
 `make clean`       # destroy and delete VirtualBox

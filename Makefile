@@ -31,8 +31,12 @@ clean:
 
 deploy:
 	# Generate md5 checksum
-	#echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
+	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
 	# Move old .iso to archive
-	#ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso
+	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso
 	# Copy to deployment server
 	scp -oStrictHostKeyChecking=no mycelimage-newest.* $(DEPLOY_SSH):$(DEPLOY_IMGDIR)
+
+deploy_pacman:
+	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
+	cp mycelimage-newest.* ../pacman/

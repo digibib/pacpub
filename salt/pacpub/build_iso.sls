@@ -19,6 +19,9 @@ historyclean:
 # SETUP SALT MINION AND MASTERS
 ########
 
+/etc/salt/minion_id:
+  file.absent
+
 salt-minion:
   file.managed:
     - name: /etc/salt/minion
