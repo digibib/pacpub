@@ -18,8 +18,8 @@ pre-start script
   set -x
   # force hostname before salt-minion start
   /sbin/dhclient eth0
-  GATEWAY=arp -a | awk -F'[()]' '{print $2}'
-  sed -i "s/__MASTER__/${GATEWAY}/" /etc/salt/minion
+  GATEWAY=`arp -a | awk -F'[()]' '{print $2}'`
+  sed -i "s/__MASTER__/$GATEWAY/" /etc/salt/minion
 end script
 
 script

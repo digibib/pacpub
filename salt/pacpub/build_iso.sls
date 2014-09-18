@@ -28,7 +28,6 @@ salt-minion:
     - source: salt://pacpub/files/minion
     - template: jinja
     - context:
-      master: 192.168.0.1
       grandmaster: {{ pillar['grandmaster'] }}
 
 minion-service:

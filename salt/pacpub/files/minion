@@ -1,3 +1,2 @@
 master:
-  - {{ master }}
-  - {{ grandmaster }}
+  - __MASTER__

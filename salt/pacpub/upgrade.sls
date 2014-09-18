@@ -12,6 +12,7 @@ upgradepkgs:
       - software-properties-common
       - system-config-printer-gnome
       - virtualbox-guest-x11  # modules needed for X to function in Virtualbox
+      - salt-minion
       - language-pack-nb
       - libreoffice-writer
       - libreoffice-calc
