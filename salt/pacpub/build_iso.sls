@@ -32,7 +32,7 @@ salt-minion:
 
 minion-service:
   file.managed:
-    - name: /etc/init/salt-minion
+    - name: /etc/init/salt-minion.conf
     - source: salt://pacpub/files/salt-minion.conf.tmpl
 
 ########
