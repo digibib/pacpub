@@ -33,7 +33,7 @@ deploy:
 	# Generate md5 checksum
 	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
 	# Move old .iso to archive
-	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso
+	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso || true
 	# Copy to deployment server
 	scp -oStrictHostKeyChecking=no mycelimage-newest.* $(DEPLOY_SSH):/tmp
 	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR) && rm /tmp/mycelimage*
