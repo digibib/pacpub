@@ -36,7 +36,7 @@ deploy:
 	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso || true
 	# Copy to deployment server
 	scp -oStrictHostKeyChecking=no mycelimage-newest.* $(DEPLOY_SSH):/tmp
-	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR) && rm /tmp/mycelimage*
+	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR)
 
 
 deploy_pacman:
