@@ -157,6 +157,14 @@ enable_printer:
       - file: /etc/sudoers.d/sudo_lpadmin
       - cmd: setup_printer
 
+# make publikumsskriver printer default
+default_printer:
+  cmd.run:
+    - name: lpadmin -d publikumsskriver
+    - require:
+      - file: /etc/sudoers.d/sudo_lpadmin
+      - cmd: setup_printer
+
 ##########
 # SHUTDOWN
 ##########
