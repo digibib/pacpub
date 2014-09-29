@@ -9,7 +9,9 @@ It also contains a state to generate a live .ISO image
 ## Setup
 
 You'll need Vagrant >= 1.5 (http://vagrantup.com)
+
 You'll also need virtualbox, git and make:
+
 `sudo apt-get install virtualbox git make`
 
 Local settings are set in `pillar/admin.sls` with a default at `pillar/admin.sls.example`
