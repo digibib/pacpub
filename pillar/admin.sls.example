@@ -1,5 +1,7 @@
 ---
-# Admin user password (must be Salted): mkpasswd --method=sha-512 --salt=<random salt string> <password>
+# Admin user password (must be Salted): 
+# to generate with mkpasswd (ubuntu: apt-get install whois): 
+# mkpasswd --method=sha-512 --salt=<random salt string> <password>
 adminpass: somesaltedpassword
 startpage: http://ubuntu.com   # Default firefox startpage
 grandmaster: 192.168.0.1       # IP to master of masters
