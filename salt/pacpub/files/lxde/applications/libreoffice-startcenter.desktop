@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=libreoffice-startcenter
+Comment=libreoffice-startcenter
+Exec=libreoffice-startcenter
+Terminal=false
+Type=Application
+Icon=libreoffice-startcenter.ico
+Categories=Application;System;
+NoDisplay=true
