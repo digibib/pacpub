@@ -39,6 +39,7 @@ installpkgs:
       - language-pack-nb
       - libreoffice-writer
       - libreoffice-calc
+      - libreoffice-impress
       - libreoffice-l10n-nb
       - myspell-nb
       - eog
