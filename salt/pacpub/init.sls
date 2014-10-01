@@ -69,7 +69,7 @@ removepkgs:
       - transmission-common
       - transmission-gtk
       - libreoffice-draw
-      - libreoffice-impress
+      - libreoffice-math
       - gnumeric
       - xfburn
       - mtpaint
