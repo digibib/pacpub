@@ -69,7 +69,6 @@ removepkgs:
       - transmission
       - transmission-common
       - transmission-gtk
-      - libreoffice-draw
       - libreoffice-math
       - gnumeric
       - xfburn
