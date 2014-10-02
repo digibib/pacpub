@@ -40,7 +40,7 @@ firstrun:
     - template: jinja
     - stateful: True
     - require:
-      - file: /tmp/proxy.pac
+      - file: /home/vagrant/proxy.pac
 
 ########
 # PROFILE
