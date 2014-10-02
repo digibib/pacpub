@@ -10,13 +10,15 @@ export DISPLAY=:0
 # login
 xdotool key Return
 
-sleep 10
+#sleep 10
 
 # start firefox
 pkill firefox # kill any open firefox
 su bib -c "LANG=en-GB firefox {{ pillar['startpage'] }} &" # start firefox for bib user
-sleep 10
+sleep 5
 
+pkill firefox
+exit 0
 # do firefox mods
 WID=`xdotool search "Mozilla Firefox" 2> /dev/null | head -1`
 if [ -n "$WID" ]
