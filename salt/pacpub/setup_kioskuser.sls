@@ -144,21 +144,21 @@ icons:
 # FIREFOX
 ########
 
-/tmp/proxy.pac:
+/home/vagrant/proxy.pac:
   file.managed:
     - source: salt://pacpub/files/firefox/firefoxproxy.pac
 
-# /home/bib/.mozilla/firefox/0hj15qc9.default/prefs.js:
-#   file.managed:
-#     - source: salt://pacpub/files/firefox/prefs.js
-#     - user: bib
-#     - group: bib
+/home/bib/.mozilla/firefox/0hj15qc9.default/prefs.js:
+  file.managed:
+    - source: salt://pacpub/files/firefox/prefs.js
+    - user: bib
+    - group: bib
 
-# /home/bib/.mozilla/firefox/profiles.ini:
-#   file.managed:
-#     - source: salt://pacpub/files/firefox/profiles.ini
-#     - user: bib
-#     - group: bib
+/home/bib/.mozilla/firefox/profiles.ini:
+  file.managed:
+    - source: salt://pacpub/files/firefox/profiles.ini
+    - user: bib
+    - group: bib
 
 ########
 # KEYBINDINGS AND FOLDERS
