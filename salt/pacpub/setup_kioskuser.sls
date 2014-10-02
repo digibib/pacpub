@@ -148,6 +148,12 @@ icons:
   file.managed:
     - source: salt://pacpub/files/firefox/firefoxproxy.pac
 
+/home/bib/.mozilla/firefox/0hj15qc9.default:
+  file.directory:
+    - user: bib
+    - group: bib
+    - makedirs: True
+
 /home/bib/.mozilla/firefox/0hj15qc9.default/prefs.js:
   file.managed:
     - source: salt://pacpub/files/firefox/prefs.js
