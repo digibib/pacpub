@@ -23,7 +23,6 @@ upgradepkgs:
       - scrot
       - nfs-common
       - firefox
-      - vino
       - libav-tools
       - openssh-server
       - lxlauncher

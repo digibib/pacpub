@@ -18,6 +18,10 @@ autoaccept_oracle:
   cmd.run:
     - name: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 
+autoaccept_msttffonts:
+  cmd.run:
+    - name: echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+
 oracle-java7-installer:
   pkg.installed:
     - require:
@@ -47,13 +51,14 @@ installpkgs:
       - scrot
       - nfs-common
       - firefox
-      - vino
       - libav-tools
       - salt-minion
-      - openssh-server
       - lxlauncher
       - flashplugin-installer
       - xdotool
+      - openssh-server
+      - lubuntu-restricted-extras
+      - ttf-mscorefonts-installer
     - skip_verify: True
 
 removepkgs:
@@ -77,6 +82,7 @@ removepkgs:
       - apparmor
       - xpad
       - guvcview
+      - vino
 
 remastersys_dependencies:
   pkg.installed:
