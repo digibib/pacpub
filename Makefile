@@ -20,6 +20,9 @@ provision:
 upgrade: 
 	vagrant ssh -c 'sudo salt-call --local state.sls pacpub.upgrade'
 
+dist-upgrade:
+	vagrant ssh -c 'sudo salt-call --local state.sls pacpub.dist-upgrade'
+
 freeze: 
 	vagrant ssh -c 'sudo salt-call --local state.sls pacpub.save_kioskstate'
 
