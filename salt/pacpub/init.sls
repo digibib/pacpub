@@ -176,6 +176,15 @@ default_printer:
       - cmd: setup_printer
 
 ##########
+# ALSA DEFAULT SOUND CARD
+##########
+
+# this file will be updated from autostart.sh script on live image
+/etc/asound.conf.tmpl:
+  file.managed:
+    - source: salt://pacpub/files/asound.conf.tmpl
+
+##########
 # SHUTDOWN
 ##########
 
