@@ -11,7 +11,13 @@ fi
 
 # SET DEFAULT ALSA SOUND CARD
 APLAY=`aplay -L | grep -A 1 plughw | grep Analog -B 1 | grep -v Analog`
-CARD=`echo $APLAY | cut -d: -f2- | cut -d, -f1 | cut -d= -f2`
-DEVICE=`echo $APLAY | cut -d: -f2- | cut -d, -f2 | cut -d= -f2`
 
-cat /etc/asound.conf.tmpl | sed -e "s/__CARD__/$CARD/g" | sed -e "s/__DEVICE__/$DEVICE/g" > /etc/asound.conf
+RESULT=$?
+if [ $RESULT -eq 0 ]; then
+  CARD=`echo $APLAY | cut -d: -f2- | cut -d, -f1 | cut -d= -f2`
+  DEVICE=`echo $APLAY | cut -d: -f2- | cut -d, -f2 | cut -d= -f2`
+  cat /etc/asound.conf.tmpl | sed -e "s/__CARD__/$CARD/g" | sed -e "s/__DEVICE__/$DEVICE/g" > /etc/asound.conf
+  echo "Setup alsa default card succeeded"
+else
+  echo "Setup alsa default card failed"
+fi
