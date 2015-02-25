@@ -97,6 +97,13 @@ menus:
     - require:
       - file: menus
 
+# disable system logout for kiosk user
+/usr/bin/lxsession-logout:
+  file.managed:
+    - user: root
+    - group: vagrant
+    - mode: 754
+
 ########
 # DESKTOP-DIRECTORIES
 ########
