@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.run_highstate = true
     #salt.always_install = true
     salt.bootstrap_options = "-g https://github.com/saltstack/salt.git"
-    salt.install_args = " v2014.7.0rc2"
+    salt.install_args = " v2014.7"
     salt.install_type = "git"
     salt.verbose = true
     salt.pillar_data
