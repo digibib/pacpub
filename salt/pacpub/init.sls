@@ -83,6 +83,7 @@ removepkgs:
       - xpad
       - guvcview
       - vino
+      - light-locker
 
 remastersys_dependencies:
   pkg.installed:
