@@ -41,6 +41,9 @@ installpkgs:
       - system-config-printer-gnome
       - virtualbox-guest-x11  # modules needed for X to function in Virtualbox
       - language-pack-nb
+      - firefox-locale-nb
+      - language-pack-gnome-nb
+      - language-pack-gnome-nb-base
       - libreoffice-writer
       - libreoffice-calc
       - libreoffice-impress
@@ -75,6 +78,7 @@ removepkgs:
       - transmission-common
       - transmission-gtk
       - libreoffice-math
+      - language-pack-en
       - gnumeric
       - xfburn
       - mtpaint
@@ -184,6 +188,18 @@ default_printer:
 /etc/asound.conf.tmpl:
   file.managed:
     - source: salt://pacpub/files/asound.conf.tmpl
+
+##########
+# LOCALES
+##########
+
+/etc/default/locale:
+  file.managed:
+    - source: salt://pacpub/files/locale
+
+/etc/default/keyboard:
+  file.managed:
+    - source: salt://pacpub/files/keyboard
 
 ##########
 # SHUTDOWN

@@ -3,6 +3,7 @@
 # When:         runs as user on each login
 # Purpose:      start application and mycel client, do local user mods
 
+setxkeymap no
 lxlauncher &
 xrandr --output LVDS1 --off    # Hack to disable laptop secondary view (!?)
 /usr/local/bin/mycel-client &
