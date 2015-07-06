@@ -55,7 +55,7 @@ installpkgs:
       - nfs-common
       - firefox
       - libav-tools
-      - salt-minion
+      - salt-minion: 2015.5.0+ds-1trusty1
       - lxlauncher
       - flashplugin-installer
       - xdotool
