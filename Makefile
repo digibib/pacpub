@@ -1,6 +1,8 @@
 DATE=`date +'%Y-%m-%d'`
 SETTINGS='pillar/admin.sls'
-DEPLOY_SSH=$(shell cat $(SETTINGS) | grep deploy_ssh | cut -d' ' -f2)
+SSH_OPTS=-oStrictHostKeyChecking=no -oPreferredAuthentications="password"
+DEPLOYSERVER ?= melville.deichman.no
+#DEPLOY_SSH=$(shell cat $(SETTINGS) | grep deploy_ssh | cut -d' ' -f2)
 DEPLOY_IMGDIR=$(shell cat $(SETTINGS) | grep deploy_imgdir | cut -d' ' -f2)
 DEPLOY_OLDDIR=$(shell cat $(SETTINGS) | grep deploy_olddir | cut -d' ' -f2)
 
@@ -40,8 +42,10 @@ deploy_local:
 deploy_server:
 	# Generate md5 checksum
 	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
-	# Move old .iso to archive
-	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso || true
 	# Copy to deployment server
-	scp -oStrictHostKeyChecking=no mycelimage-newest.* $(DEPLOY_SSH):/tmp
-	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR)
+	scp -r $(SSH_OPTS) mycelimage-newest.* $(SUDOUSER)@$(DEPLOYSERVER):/tmp/
+	
+	# Move old .iso to archive and new iso to deploy dir
+	ssh $(SSH_OPTS) -t $(SUDOUSER)@$(DEPLOYSERVER) "sudo sh -c ' \
+		sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso || true && \
+		sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR)'"

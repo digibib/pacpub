@@ -35,9 +35,9 @@ Live ISO is generated and saved in current folder as mycelimage-newest.iso
 
 ## Test Deploy
 
-For testing generated image, deploy to pacman first
+For testing generated image locally, deploy to local pacman first. (expects parent dir to be ../pacman)
 
-`make deploy_pacman`
+`make deploy_local`
 
 which assumes pacman is installed in subdirectory.
 (http://github.com/digibib/pacman.git)
@@ -47,7 +47,7 @@ which assumes pacman is installed in subdirectory.
 
 For production deploy, make sure to setup deploy targets in pillar/admin.sls. 
 
-`make deploy`      # deploy image to one or more locations
+`SUDOUSER=user DEPLOYSERVER=example.com make deploy_server`      # deploy image to one or more locations using a user with sudo privileges on server.
 
 Uses ssh to move previous image to archive and  scp to copy new image and md5 checksum to deploy location.
 
