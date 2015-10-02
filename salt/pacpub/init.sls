@@ -62,6 +62,7 @@ installpkgs:
       - openssh-server
       - lubuntu-restricted-extras
       - ttf-mscorefonts-installer
+      - pavucontrol
     - skip_verify: True
 
 removepkgs:
