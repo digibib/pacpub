@@ -55,7 +55,7 @@ installpkgs:
       - nfs-common
       - firefox
       - libav-tools
-      - salt-minion: 2015.5.0+ds-1trusty1
+      - salt-minion
       - lxlauncher
       - flashplugin-installer
       - xdotool
@@ -136,6 +136,11 @@ remastersys:
 /etc/dhcp/dhclient-exit-hooks.d/hostname:
   file.managed:
     - source: salt://pacpub/files/dhclient-hostname
+    - force: True
+
+/etc/timezone:
+  file.managed:
+    - source: salt://pacpub/files/timezone
     - force: True
 
 ########

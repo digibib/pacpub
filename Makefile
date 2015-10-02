@@ -32,7 +32,12 @@ iso:
 clean: 
 	vagrant destroy --force
 
-deploy:
+
+deploy_local:
+	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
+	cp mycelimage-newest.* ../pacman/
+
+deploy_server:
 	# Generate md5 checksum
 	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
 	# Move old .iso to archive
@@ -40,8 +45,3 @@ deploy:
 	# Copy to deployment server
 	scp -oStrictHostKeyChecking=no mycelimage-newest.* $(DEPLOY_SSH):/tmp
 	ssh -oStrictHostKeyChecking=no -t $(DEPLOY_SSH) sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR)
-
-
-deploy_pacman:
-	echo "md5=$(shell md5sum mycelimage-newest.iso | cut -d' ' -f1)" > mycelimage-newest.md5
-	cp mycelimage-newest.* ../pacman/
