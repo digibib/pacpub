@@ -195,6 +195,10 @@ default_printer:
   file.managed:
     - source: salt://pacpub/files/asound.conf.tmpl
 
+/etc/pulse/default.pa:
+  file.append:
+    - text: set-card-profile 0 output:analog-stereo
+
 ##########
 # LOCALES
 ##########
