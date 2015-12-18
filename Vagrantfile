@@ -3,6 +3,8 @@
 
 require 'fileutils'
 
+SALT_VERSION="2015.5.2+ds-1utopic1"
+
 pillar_admin_file = 'pillar/admin.sls';
  
 if !File.file?(pillar_admin_file)
@@ -16,8 +18,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "mast3rof0/lubuntu32"
-  config.vm.box_url ="http://datatest.deichman.no/vagrant/lubuntu_14041_32b.box"
+  config.vm.box = "lubuntu_1410_32b"
+  config.vm.box_url ="http://datatest.deichman.no/vagrant/lubuntu_1410_32b.box"
   
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
@@ -28,15 +30,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/srv"
 
+  config.vm.provision "shell", inline: "sudo add-apt-repository -y ppa:saltstack/salt && \
+    sudo apt-get update && \
+    sudo apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold salt-minion=\"#{SALT_VERSION}\" salt-master=\"#{SALT_VERSION}\""
 
   config.vm.provision :salt do |salt|
+    #salt.bootstrap_options = "-F -c /tmp -P"  # Vagrant Issues #6011, #6029
     salt.minion_config = "salt/minion"
     salt.run_highstate = true
-    #salt.always_install = true
-    #salt.bootstrap_options = "-g https://github.com/saltstack/salt.git"
-    #salt.install_args = " v2014.7"
-    #salt.install_type = "git"
-    #salt.verbose = true
-    #salt.pillar_data
+    salt.verbose = true
   end
+
 end
