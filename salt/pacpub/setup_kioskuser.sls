@@ -182,6 +182,7 @@ icons:
     - source: salt://pacpub/files/lxde/lubuntu-rc.xml
     - user: bib
     - group: bib
+    - makedirs: True
 
 {% for folder in ['Bilder','Dokumenter','Maler','Musikk','Offentlig','Videoklipp'] %}
 /home/bib/{{folder}}:
