@@ -197,7 +197,7 @@ default_printer:
 
 /etc/pulse/default.pa:
   file.append:
-    - text: set-card-profile 0 output:analog-stereo
+    - text: set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo
 
 ##########
 # LOCALES
