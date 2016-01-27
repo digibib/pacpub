@@ -18,8 +18,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "lubuntu_1410_32b"
-  config.vm.box_url ="http://datatest.deichman.no/vagrant/lubuntu_1410_32b.box"
+  config.vm.box = "pacpub"
+  config.vm.box_url ="http://datatest.deichman.no/vagrant/lubuntu-14.04-20160113-i386.box"
   
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
@@ -30,9 +30,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/srv"
 
-  config.vm.provision "shell", inline: "sudo add-apt-repository -y ppa:saltstack/salt && \
-    sudo apt-get update && \
-    sudo apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold salt-minion=\"#{SALT_VERSION}\" salt-master=\"#{SALT_VERSION}\""
+  #config.vm.provision "shell", inline: "sudo add-apt-repository -y ppa:saltstack/salt && \
+  #  sudo apt-get update && \
+  #  sudo apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold salt-minion=\"#{SALT_VERSION}\" salt-master=\"#{SALT_VERSION}\""
 
   config.vm.provision :salt do |salt|
     #salt.bootstrap_options = "-F -c /tmp -P"  # Vagrant Issues #6011, #6029
