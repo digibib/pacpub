@@ -48,4 +48,4 @@ deploy_server:
 	# Move old .iso to archive and new iso to deploy dir
 	ssh $(SSH_OPTS) -t $(SUDOUSER)@$(DEPLOYSERVER) "sudo sh -c ' \
 		sudo mv $(DEPLOY_IMGDIR)/mycelimage-newest.iso $(DEPLOY_OLDDIR)/mycelimage-$(DATE).iso || true && \
-		sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR)'"
+		sudo mv /tmp/mycelimage-newest.* $(DEPLOY_IMGDIR) && sudo clientserver.sh restart'"
