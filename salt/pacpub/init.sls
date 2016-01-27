@@ -64,7 +64,7 @@ installpkgs:
       - ttf-mscorefonts-installer
       - pavucontrol
       - intel-microcode
-     - chromium-browser
+      - chromium-browser
     - skip_verify: True
 
 removepkgs:
