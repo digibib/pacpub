@@ -89,6 +89,13 @@ menus:
     - user: bib
     - group: bib
 
+pulse:
+  file.directory:
+    - name: /home/bib/.config/pulse
+    - makedirs: True
+    - user: bib
+    - group: bib
+
 /home/bib/.config/menus:
   file.recurse:
     - source: salt://pacpub/files/lxde/menus
@@ -103,6 +110,14 @@ menus:
     - user: root
     - group: vagrant
     - mode: 754
+
+# lxpanel (taskbar)
+#/home/bib/.config/lxpanel/Lubuntu/panels/panel:
+#  file.managed:
+#    - source: salt://pacpub/files/lxpanel-panel
+#    - user: bib
+#    - group: bib
+#    - makedirs: True
 
 ########
 # DESKTOP-DIRECTORIES
@@ -172,6 +187,17 @@ icons:
     - source: salt://pacpub/files/firefox/profiles.ini
     - user: bib
     - group: bib
+
+##########
+# CHROMIUM
+##########
+
+#/home/bib/.config/chromium/Default/Preferences:
+#  file.managed:
+#    - source: salt://pacpub/files/chromium/Preferences
+#    - user: bib
+#    - group: bib
+#    - makedirs: True
 
 ########
 # KEYBINDINGS AND FOLDERS

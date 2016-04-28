@@ -26,6 +26,5 @@ upgradepkgs:
       - libav-tools
       - openssh-server
       - lxlauncher
-      - flashplugin-installer
       - oracle-java7-installer
     - skip_verify: True
