@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name= Pressreader
+Name[nb]= Pressreader
+GenericName= Pressreader
+Comment=Newspapers
+Exec=chromium-browser http://www.pressreader.com/catalog
+Icon=/usr/share/icons/hicolor/48x48/apps/applications-internet.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

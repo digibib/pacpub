@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name= Artikkelbasen
+GenericName= Artikkelbasen
+Comment=Artikler
+Exec=chromium-browser http://asp.bibliotekservice.no/nal_arkdok/search.aspx
+Icon=/usr/share/icons/hicolor/48x48/apps/applications-internet.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

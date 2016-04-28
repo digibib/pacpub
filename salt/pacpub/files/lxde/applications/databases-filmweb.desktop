@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Filmbib
+GenericName=Filmbib
+Comment=Film arkiv
+Exec=firefox https://filmbib.vod2u.com/login
+Icon=/usr/share/icons/hicolor/48x48/apps/applications-internet.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8

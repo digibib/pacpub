@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Atekst
-Name[nb]=Atekst
-GenericName=Atekst
+Name= Retriever
+Name[nb]= Retriever
+GenericName= Retriever
 Comment=Norske avisartikler
 Comment[nb]=Norske avisartikler
 Exec=firefox http://www.retriever-info.com/services/archive.html

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name= Deichman database oversikt
+GenericName= Deichman
+Comment=Databaser
+Exec=chromium-browser https://www.deichman.no/databaser
+Icon=/usr/share/icons/hicolor/48x48/apps/applications-internet.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Databases;
+Encoding=UTF-8
