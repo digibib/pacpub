@@ -9,6 +9,9 @@ then
   rsync -qa --delete --exclude='.Xauthority' --exclude='.cache' /opt/kiosk/ $HOME/
 fi
 
+# Ensure persmissions are ok
+chown -R bib.bib $HOME
+
 # SET DEFAULT ALSA SOUND CARD
 APLAY=`aplay -L | grep -A 1 plughw | grep Analog -B 1 | grep -v Analog`
 
