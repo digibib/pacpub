@@ -57,7 +57,6 @@ installpkgs:
       - libav-tools
       - salt-minion
       - lxlauncher
-      - flashplugin-installer
       - xdotool
       - openssh-server
       - lubuntu-restricted-extras
@@ -65,6 +64,7 @@ installpkgs:
       - pavucontrol
       - intel-microcode
       - chromium-browser
+      - adobe-flashplugin
     - skip_verify: True
 
 removepkgs:
@@ -140,10 +140,17 @@ remastersys:
     - source: salt://pacpub/files/dhclient-hostname
     - force: True
 
+# Timezone
 /etc/timezone:
   file.managed:
     - source: salt://pacpub/files/timezone
     - force: True
+
+# APT sources
+/etc/apt/sources.list:
+  file.managed:
+    - source: salt://pacpub/files/sources.list
+
 
 ########
 # CHROMIUM
@@ -165,12 +172,13 @@ remastersys:
 
 setup_printer:
   cmd.run:
-    #- name: lpadmin -E -p publikumsskriver -v socket://10.172.2.31:9100 -m gutenprint.5.2://hp-lj_4000/expert -L "publikumsskriver" -E
     - name: >
         lpadmin -E -p publikumsskriver -v socket://10.172.2.31:9100
         -o pdftops-renderer-default=pdftops
-        -m foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/HP-LaserJet_4050-Postscript.ppd
+        -m openprinting-ppds:0/ppd/openprinting/Lexmark/Lexmark_MS810_Series.ppd
         -L "publikumsskriver" -E
+#        -m foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/HP-LaserJet_4050-Postscript.ppd
+#    - name: lpadmin -E -p publikumsskriver -v socket://10.172.2.31:9100 -m gutenprint.5.2://hp-lj_4000/expert -L "publikumsskriver" -E
 
 # make sure default printer is accepting jobs
 enable_printer: 
@@ -261,3 +269,13 @@ networking:
     - watch:
       - file: /etc/network/interfaces
     - stateful: True
+
+##########
+# CRON
+##########
+
+/etc/cron.d/pacpub:
+  file.managed:
+    - source: salt://pacpub/files/pacpub.cron
+    - mode: 755
+

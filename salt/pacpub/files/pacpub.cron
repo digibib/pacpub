@@ -1,0 +1,11 @@
+# /etc/cron.d/pacpub
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Regenerate ssh host keys on boot
+@reboot   root	dpkg-reconfigure openssh-server
+
+# Reboot nightly, to free up system resources
+0 04 * * *	root	reboot -f
+#0 04 * * *	root	sleep $(( $RANDOM % 600 )) ; reboot -f
